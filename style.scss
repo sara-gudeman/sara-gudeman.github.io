@@ -6,28 +6,43 @@
 //
 
 @import "reset";
+@import url("https://fonts.googleapis.com/css?family=Raleway:700");
+@import "css/font-awesome.min.css";
 
 body {
   font-family: 'Raleway', sans-serif;
   margin: 0;
   font-size: 45%;
-  background-color: rgb(227, 227, 227);
-  background: url("images/header-sm.jpg") no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  background-color: rgba(31, 7, 0, 0.3);
 }
 
-.header-wrapper {
-  content: '';
+#banner {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(31, 7, 0, 0.3);
-  z-index: -1000;
+  background: 
+    linear-gradient(
+      rgba(31, 7, 0, 0.3), 
+      rgba(31, 7, 0, 0.3)
+    ),
+    url("images/header-sm.jpg") 
+    no-repeat center center fixed;
+  animation-duration: 2s;
+  animation-name: slidein;
+  z-index: -999;
+}
+
+
+@keyframes slidein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 .headline {
@@ -79,11 +94,19 @@ body {
 @media screen and (min-width: 40.5em) {
   body {
     font-size: 100%;
-    background: url("images/header-lrg.jpg") no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+  }
+
+  #banner {
+    background: 
+      linear-gradient(
+        rgba(31, 7, 0, 0.3), 
+        rgba(31, 7, 0, 0.3)
+      ),
+      url("images/header-lrg.jpg") 
+      no-repeat center center fixed;
+    animation-duration: 2s;
+    animation-name: slidein;
+    z-index: -999;
   }
 
   .nav-bar {
