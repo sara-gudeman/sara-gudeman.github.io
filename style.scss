@@ -6,14 +6,30 @@
 //
 
 @import "reset";
+@import "mixins";
+
 @import url("https://fonts.googleapis.com/css?family=Raleway:700");
 @import "css/font-awesome.min.css";
 
 body {
   font-family: 'Raleway', sans-serif;
+  background-color: rgba(31, 7, 0, 0.3);
   margin: 0;
   font-size: 45%;
-  background-color: rgba(31, 7, 0, 0.3);
+  @include breakpoint(sm) { font-size: 55%; }
+  @include breakpoint(md) { font-size: 65%; }
+  @include breakpoint(lrg) { font-size: 100%; }
+}
+
+#container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 1);
+  position: fixed;
+  width: 100%;
+  height: 100%;
 }
 
 #banner {
@@ -22,26 +38,11 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: 
-    linear-gradient(
-      rgba(31, 7, 0, 0.3), 
-      rgba(31, 7, 0, 0.3)
-    ),
-    url("images/header-sm.jpg") 
-    no-repeat center center fixed;
-  animation-duration: 2s;
-  animation-name: slidein;
-  z-index: -999;
-}
-
-
-@keyframes slidein {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
+  @include animate(slidein, 2s, -999);
+  @include banner-bg("images/header-sm.jpg");
+  @include breakpoint(lrg) {
+    @include banner-bg("images/header-lrg.jpg");
+    @include animate(slidein, 2s, -999);
   }
 }
 
@@ -65,6 +66,7 @@ body {
   color: #fcfbf7;
   font-size: 3em;
   padding: 0 1.2em 0 0;
+  @include breakpoint(md) { font-size: 2.5em; }
 }
 
 .nav-item:last-child {
@@ -74,42 +76,4 @@ body {
 .header-content {
   color: #fcfbf7;
   margin-top: 10%;
-}
-
-@media screen and (min-width: 22em) {
-  body {
-    font-size: 55%;
-  }
-}
-
-@media screen and (min-width: 28.75em) {
-  body {
-    font-size: 65%;
-  }
-  .nav-item {
-    font-size: 2.5em;
-  }
-}
-
-@media screen and (min-width: 40.5em) {
-  body {
-    font-size: 100%;
-  }
-
-  #banner {
-    background: 
-      linear-gradient(
-        rgba(31, 7, 0, 0.3), 
-        rgba(31, 7, 0, 0.3)
-      ),
-      url("images/header-lrg.jpg") 
-      no-repeat center center fixed;
-    animation-duration: 2s;
-    animation-name: slidein;
-    z-index: -999;
-  }
-
-  .nav-bar {
-    margin: 1em;
-  }
 }

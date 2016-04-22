@@ -1,0 +1,43 @@
+////////////
+// BANNER //
+////////////
+@mixin banner-bg($source) {
+	background: 
+		linear-gradient(rgba(31, 7, 0, 0.3), rgba(31, 7, 0, 0.3)),
+		url($source),
+	  no-repeat center center fixed;	
+}
+
+////////////////
+// ANIMATIONS //
+////////////////
+@mixin animate($name, $time, $zPos) {
+	animation-duration: $time;
+	animation-name: $name;
+	z-index: $zPos;
+}
+
+@keyframes slidein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/////////////////
+// BREAKPOINTS //
+/////////////////
+@mixin breakpoint($point) {
+	@if $point == sm {
+		@media screen and (min-width: 22em) { @content; }
+	}
+	@else if $point == md {
+		@media screen and (min-width: 28.75em) { @content; }
+	}
+	@else if $point == lrg {
+		@media screen and (min-width: 40.5em) { @content; }
+	}
+}
