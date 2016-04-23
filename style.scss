@@ -40,8 +40,10 @@ body {
   height: 100%;
   @include animate(slidein, 2s, -999);
   @include banner-bg("images/header-sm.jpg");
+  @include vendors(background-size, cover);
   @include breakpoint(lrg) {
     @include banner-bg("images/header-lrg.jpg");
+    @include vendors(background-size, cover);
     @include animate(slidein, 2s, -999);
   }
 }

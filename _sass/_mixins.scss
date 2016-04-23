@@ -41,3 +41,14 @@
 		@media screen and (min-width: 40.5em) { @content; }
 	}
 }
+
+/////////////
+// VENDORS //
+/////////////
+
+@mixin vendors($prop, $val) {
+	-webkit-#{$prop}: $val;
+		 -moz-#{$prop}: $val;
+		 	 -o-#{$prop}: $val;
+					#{$prop}: $val;
+}
